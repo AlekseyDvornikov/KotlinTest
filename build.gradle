@@ -1,0 +1,38 @@
+buildscript {
+
+    ext {
+        springBootVersion = '2.0.2.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.41"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'kotlin' // Required for Kotlin integration
+//apply plugin: "kotlin-spring" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'KotlinTest'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    compile('org.springframework.boot:spring-boot-starter:2.0.2.RELEASE')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test:2.0.2.RELEASE')
+}
